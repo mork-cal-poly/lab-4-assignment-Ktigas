@@ -8,7 +8,8 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  background(225);
+  drawBackground();
   drawDog(100, 400, 0.5);
   drawFish(300, 200, 0.5);
 }
@@ -127,24 +128,29 @@ function drawFish(x, y, s) {
   pop();
 }
 
-function drawEye(x, y) {
-  push();
-  translate(x, y);
-  fill(255);
-  ellipse(0, 0, 150, 100);
-  ellipse(-70, 15, 25, 15); //corner of eye
-  fill("black");
-  arc(0, -65, 20, 30, -PI / 2, PI / 2, PIE); //eyelashes
-  arc(-20, -62, 20, 30, -PI / 2, PI / 2, PIE);
-  arc(-40, -50, 10, 20, -PI / 2, PI / 2, PIE);
-  arc(-60, -40, 10, 20, -PI / 2, PI / 2, PIE);
-  arc(30, -60, 20, 30, -PI / 2, PI / 2, PIE);
-  arc(50, -50, 20, 30, -PI / 2, PI / 2, PIE);
-  fill("brown");
-  circle(0, -10, 80); //pupil
-  fill("black");
-  circle(0, -20, 50);
-  fill("white");
-  rect(10, -30, 20, 10);
-  pop();
+function drawBackground() {
+  noStroke();
+  fill(214, 206, 243); //purple
+  circle(350, 200, 120);
+  circle(50, 350, 120);
+  circle(70, 100, 200);
+  circle(320, 50, 100);
+  fill(140, 195, 230); //blue
+  circle(400, 300, 140);
+  circle(70, 280, 100);
+  circle(200, 20, 130);
+
+  fill(230, 52, 125);
+  circle(350, 100, 60);
+  triangle(310, 130, 325, 110, 345, 130);
+  fill(255, 255, 255);
+  beginShape();
+  curveVertex(370, 80);
+  curveVertex(350, 100);
+  curveVertex(370, 90); // top right bump
+  curveVertex(350, 120); // bottom point
+  curveVertex(330, 90); // left top bump
+  curveVertex(350, 100);
+  curveVertex(330, 80);
+  endShape();
 }
