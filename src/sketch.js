@@ -1,5 +1,5 @@
 let dog_x = 0;
-let clicked = true;
+let clicked = false;
 
 function setup() {
   // These lines are fitting our canvas
@@ -160,5 +160,12 @@ function drawBackground() {
 }
 
 function updateDog() {
-  dog_x = dog_x + 1;
+  if (clicked) {
+    dog_x = dog_x + 1;
+  }
+}
+
+function mouseClicked() {
+  if (mouseX > 0 && mouseX < 50 && mouseY > 250 && mouseY < 400)
+    clicked = !clicked;
 }
