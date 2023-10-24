@@ -1,3 +1,6 @@
+let dog_x = 0;
+let clicked = true;
+
 function setup() {
   // These lines are fitting our canvas
   // where we want in the DOM
@@ -10,8 +13,9 @@ function setup() {
 function draw() {
   background(225);
   drawBackground();
-  drawDog(100, 400, 0.5);
+  drawDog(dog_x, 400, 0.5);
   drawFish(300, 200, 0.5);
+  updateDog();
 }
 
 function drawDog(x, y, s) {
@@ -153,4 +157,8 @@ function drawBackground() {
   curveVertex(350, 100);
   curveVertex(330, 80);
   endShape();
+}
+
+function updateDog() {
+  dog_x = dog_x + 1;
 }
