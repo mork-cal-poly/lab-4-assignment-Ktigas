@@ -1,4 +1,4 @@
-let dog_x = 0;
+let dog_x = 400;
 let clicked = false;
 let r = 0;
 
@@ -14,8 +14,8 @@ function setup() {
 function draw() {
   background(225);
   drawBackground();
-  drawDog(dog_x, 400, 0.5);
-  drawFish(300, 200, 0.5, r);
+  drawDog(dog_x, 400, 0.7);
+  drawFish(100, 100, 0.5, r);
   updateDog();
   updateFish();
 }
@@ -164,15 +164,15 @@ function drawBackground() {
 
 function updateDog() {
   if (clicked) {
-    dog_x = dog_x + 1;
+    dog_x = dog_x - 1;
   }
 }
 
 function mouseClicked() {
-  if (mouseX > 0 && mouseX < 50 && mouseY > 250 && mouseY < 400)
+  if (mouseX > 350 && mouseX < 400 && mouseY > 250 && mouseY < 400)
     clicked = !clicked;
 }
 
 function updateFish() {
-  r = r + PI / 20;
+  if (dog_x < 100 && dog_x > -100) r = r + PI / 20;
 }
