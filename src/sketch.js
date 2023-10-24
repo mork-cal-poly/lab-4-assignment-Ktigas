@@ -1,5 +1,6 @@
 let dog_x = 0;
 let clicked = false;
+let r = 0;
 
 function setup() {
   // These lines are fitting our canvas
@@ -14,8 +15,9 @@ function draw() {
   background(225);
   drawBackground();
   drawDog(dog_x, 400, 0.5);
-  drawFish(300, 200, 0.5);
+  drawFish(300, 200, 0.5, r);
   updateDog();
+  updateFish();
 }
 
 function drawDog(x, y, s) {
@@ -105,10 +107,11 @@ function drawDog(x, y, s) {
   pop();
 }
 
-function drawFish(x, y, s) {
+function drawFish(x, y, s, r) {
   push();
   translate(x, y);
   scale(s);
+  rotate(r);
   noStroke();
   fill("#7C284A"); //tail
   rect(75, -20, 70, 200, 0, 50, 0, 0);
@@ -168,4 +171,8 @@ function updateDog() {
 function mouseClicked() {
   if (mouseX > 0 && mouseX < 50 && mouseY > 250 && mouseY < 400)
     clicked = !clicked;
+}
+
+function updateFish() {
+  r = r + PI / 20;
 }
