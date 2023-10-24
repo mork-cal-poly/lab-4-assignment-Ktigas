@@ -9,7 +9,8 @@ function setup() {
 
 function draw() {
   background(220);
-  drawDog(200, 400, 0.5);
+  drawDog(100, 400, 0.5);
+  drawFish(300, 200, 0.5);
 }
 
 function drawDog(x, y, s) {
@@ -96,5 +97,54 @@ function drawDog(x, y, s) {
   fill(244, 155, 162);
   ellipse(0, -145, 50, 30); //tongue
 
+  pop();
+}
+
+function drawFish(x, y, s) {
+  push();
+  translate(x, y);
+  scale(s);
+  noStroke();
+  fill("#7C284A"); //tail
+  rect(75, -20, 70, 200, 0, 50, 0, 0);
+  fill("#631B43");
+  rect(90, -20, 40, 200, 0, 50, 0, 0);
+  fill("#639010");
+  triangle(20, 180, 75, 90, 75, 180);
+  fill("#4B7A95");
+  triangle(145, 180, 145, 50, 180, 180);
+  triangle(-70, 50, -80, 115, -20, 95); //fins
+  triangle(-80, 115, -20, 95, 10, 145);
+  triangle(-30, 60, 50, 60, 60, 110);
+  fill("#972950"); //base
+  ellipse(0, 0, 200, 150);
+  triangle(-95, -10, -120, 5, -95, 5); //spout
+  triangle(-95, 25, -120, 10, -95, 10);
+  fill("#265064"); //head
+  triangle(-60, -60, 50, -140, 50, -80);
+  fill("#4B7A95");
+  triangle(-60, -60, 50, -120, 50, -100);
+  pop();
+}
+
+function drawEye(x, y) {
+  push();
+  translate(x, y);
+  fill(255);
+  ellipse(0, 0, 150, 100);
+  ellipse(-70, 15, 25, 15); //corner of eye
+  fill("black");
+  arc(0, -65, 20, 30, -PI / 2, PI / 2, PIE); //eyelashes
+  arc(-20, -62, 20, 30, -PI / 2, PI / 2, PIE);
+  arc(-40, -50, 10, 20, -PI / 2, PI / 2, PIE);
+  arc(-60, -40, 10, 20, -PI / 2, PI / 2, PIE);
+  arc(30, -60, 20, 30, -PI / 2, PI / 2, PIE);
+  arc(50, -50, 20, 30, -PI / 2, PI / 2, PIE);
+  fill("brown");
+  circle(0, -10, 80); //pupil
+  fill("black");
+  circle(0, -20, 50);
+  fill("white");
+  rect(10, -30, 20, 10);
   pop();
 }
