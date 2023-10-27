@@ -14,6 +14,7 @@ function setup() {
 function draw() {
   background(225);
   drawBackground();
+  drawJellyFish(163,190,color(28,198,229), color(4,0,230));
   drawDog(dog_x, 400, 0.7);
   drawFish(100, 100, 0.5, r);
   updateDog();
@@ -175,4 +176,77 @@ function mouseClicked() {
 
 function updateFish() {
   if (dog_x < 100 && dog_x > -100) r = r + PI / 20;
+}
+
+function drawJellyFish(x,y, colorBody, colorMouth){
+  push();
+  translate(160, 170);
+  translate(x,y);
+  scale(.15);
+
+  //jellyfish body
+  noStroke();
+  fill(colorBody);
+  ellipse(0,0,130,80);
+  arc(0, 30,50,60, 0,PI);
+  arc(-30, 27,50,60, 0, 7*PI/4);
+  arc(-50, 24,50,50, 0, 7*PI/4);
+  arc(30, 27,50,60, 7*PI/4,PI);
+  arc(50, 24,50,50, 3*PI/2, PI);
+
+  //legs
+  strokeWeight(10);
+  stroke(colorBody);
+
+  //left most leg
+  beginShape();
+    curveVertex(0,0);
+    curveVertex(-50,50);
+    curveVertex(-50,100);
+    curveVertex(-50,100);
+  endShape();
+
+  //right most leg
+  beginShape();
+    curveVertex(0,0);
+    curveVertex(50,50);
+    curveVertex(50,100);
+    curveVertex(50,100);
+  endShape();
+
+  //middle leg
+  beginShape();
+    curveVertex(0,0);
+    curveVertex(0,50);
+    curveVertex(5,100);
+    curveVertex(-20,100);
+  endShape();
+
+  //left middle leg    
+  beginShape();
+    curveVertex(0,0);
+    curveVertex(-20,50);
+    curveVertex(-20,120);
+    curveVertex(-20,120);
+  endShape();
+  
+  //right middle leg
+  beginShape();
+    curveVertex(0,0);
+    curveVertex(20,50);
+    curveVertex(20,120);
+    curveVertex(20,120);
+  endShape();
+  
+  //face details
+  stroke(colorMouth);
+  strokeWeight(.5);
+  arc(20, 0,20,20, PI, 0);
+  arc(-20, 0,20,20, PI, 0);
+  triangle(5,10,-5,10,0,5);
+  arc(20, 0,20,20, PI, 0);
+  strokeWeight(10);
+  point(0,30);
+
+pop();
 }
